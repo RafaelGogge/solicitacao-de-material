@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitação de Material de Limpeza</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Sistema de Solicitação de Material</h1>
+            <p class="subtitle">Produtos de Limpeza</p>
+            <button class="btn-carrinho" id="btnAbrirCarrinho">
+                🛒 <span class="carrinho-badge" id="carrinhoBadge">0</span>
+            </button>
+        </header>
+
+        <div class="main-content">
+            <!-- Seção de Produtos -->
+            <section class="produtos-section">
+                <h2>Produtos Disponíveis</h2>
+                <div class="produtos-grid" id="produtosGrid">
+                    <!-- Produtos serão inseridos aqui via JavaScript -->
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Modal de Seleção de Variação -->
+    <div id="modalVariacao" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" id="modalClose">&times;</span>
+            <h2 id="modalTitulo">Selecione as opções</h2>
+            <div class="modal-body">
+                <div class="modal-produto-info">
+                    <span id="modalIcon" class="modal-icon"></span>
+                    <span id="modalNome" class="modal-nome"></span>
+                </div>
+
+                <div id="modalVariacoes" class="modal-variacoes">
+                    <!-- Opções de variação serão inseridas aqui -->
+                </div>
+
+                <div class="modal-quantidade">
+                    <label for="modalQuantidade">Quantidade:</label>
+                    <div class="quantidade-controls">
+                        <button type="button" class="btn-quantidade-modal" id="btnDiminuir">-</button>
+                        <input type="number" id="modalQuantidade" value="1" min="1" max="999">
+                        <button type="button" class="btn-quantidade-modal" id="btnAumentar">+</button>
+                    </div>
+                </div>
+
+                <button class="btn-adicionar-modal" id="btnAdicionarModal">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal do Carrinho -->
+    <div id="modalCarrinho" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" id="modalCarrinhoClose">&times;</span>
+            <h2>Carrinho de Solicitação</h2>
+            <div class="modal-body">
+                <!-- Formulário de Dados -->
+                <div class="formulario-solicitacao">
+                    <h3>Dados da Solicitação</h3>
+                    <div class="form-group">
+                        <label for="nomeResponsavel">Nome do Responsável *</label>
+                        <input type="text" id="nomeResponsavel" placeholder="Digite o nome do responsável" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="nomeCondominio">Nome do Condomínio *</label>
+                        <input type="text" id="nomeCondominio" placeholder="Digite o nome do condomínio" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="dataSolicitacao">Data da Solicitação *</label>
+                        <input type="date" id="dataSolicitacao" required>
+                    </div>
+                </div>
+
+                <div class="carrinho-header">
+                    <span class="total-itens">Total de itens: <strong id="totalItens">0</strong></span>
+                    <button class="btn-limpar" id="btnLimparCarrinho">Limpar Carrinho</button>
+                </div>
+                <div class="carrinho-lista" id="carrinhoLista">
+                    <p class="carrinho-vazio">Nenhum item adicionado</p>
+                </div>
+                <div class="carrinho-footer">
+                    <button class="btn-finalizar" id="btnFinalizar">Finalizar Solicitação</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
